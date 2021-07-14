@@ -2,6 +2,7 @@ const vm = Vue.createApp({
     data() {
         return {
             firstName: "Ben",
+            middleName: "",
             lastName: "Rogers",
             url: "https://google.com",
             rawUrl: '<a href="https://google.com" target="_blank">Google</a>',
@@ -10,13 +11,19 @@ const vm = Vue.createApp({
     },
     methods: {
         getFullName() {
-            return `${this.firstName} ${this.lastName}`;
+            return `${this.firstName} ${this.middleName} ${this.lastName}`;
         },
         changeAge(addOrSubtract) {
             addOrSubtract ? this.age++ : this.age--;
         },
-        updateLastName(event) {
+        updateLastName(msg, event) {
+            //not needed because Vue can handle in the template with .prevent
+            // event.preventDefault;
             this.lastName = event.target.value;
+            console.log(msg);
+        },
+        addMiddleName(event) {
+            this.middleName = event.target.value;
         }
     }
 }).mount('#app');

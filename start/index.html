@@ -19,8 +19,11 @@
         <label>First Name:</label>
         <input type="text" v-model="firstName" />
 
+        <label>Middle Name:</label>
+        <input type="text" @keyUp.enter="addMiddleName" />
+
         <label>Last Name:</label>
-        <input type="text" :value="lastName" @input="updateLastName" />
+        <input type="text" :value="lastName" @input.prevent="updateLastName('this is a message', $event)" />
         <p>{{age}}</p>
         <button type="button" @click="changeAge(true)">Add</button>
         <button type="button" @click="changeAge(false)">Subtract</button>
