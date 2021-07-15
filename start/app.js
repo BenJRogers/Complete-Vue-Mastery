@@ -10,9 +10,6 @@ const vm = Vue.createApp({
         }
     },
     methods: {
-        getFullName() {
-            return `${this.firstName} ${this.middleName} ${this.lastName}`;
-        },
         changeAge(addOrSubtract) {
             addOrSubtract ? this.age++ : this.age--;
         },
@@ -24,6 +21,18 @@ const vm = Vue.createApp({
         },
         addMiddleName(event) {
             this.middleName = event.target.value;
+        }
+    },
+    computed: {
+        getFullName() {
+            return `${this.firstName} ${this.middleName} ${this.lastName}`;
+        }
+    },
+    watch: {
+        age(newVal, oldVal) {
+            setTimeout(() => {
+                this.age++
+            }, 2000);
         }
     }
 }).mount('#app');
