@@ -4,6 +4,7 @@ let vm = Vue.createApp({
       message: " - Vue lifecycle Hooks!"
     }
   },
+  template: `{{ message }}`,
   beforeCreate() {
     console.log("beforeCreate() function called", this.message);
   },
