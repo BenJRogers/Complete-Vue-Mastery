@@ -1,7 +1,7 @@
 <template>
   <p>This is the first message</p>
   <Greeting :age="age" />
-  <User :age="age" @change-age="ageIncrease" />
+  <User :age="age" @change-age="ageIncrease" :ageIncreaseFn="ageIncreaseCb" />
 </template>
 
 <script>
@@ -22,6 +22,9 @@ export default {
   methods: {
     ageIncrease(num) {
       this.age += num;
+    },
+    ageIncreaseCb(ageValue) {
+      this.age += ageValue;
     },
   },
 };

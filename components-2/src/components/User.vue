@@ -1,5 +1,6 @@
 <template>
-  <button @click.prevent="changeAge">Bump up age</button>
+  <button @click.prevent="changeAge">Bump up age EVENT</button>
+  <button @click.prevent="ageIncreaseFn(5)">Bump up age CB</button>
   <p>The user is {{ age }} old!</p>
   <p>The aged doubled {{ ageDouble }}</p>
 </template>
@@ -16,6 +17,7 @@ export default {
         return value < 130;
       },
     },
+    ageIncreaseFn: Function,
   },
   emits: ["change-age"], // <--- add this line for vue 3 emits
   methods: {
