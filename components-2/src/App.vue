@@ -1,8 +1,7 @@
 <template>
   <p>This is the first message</p>
-  <button @click.prevent="ageIncrease">Bump up age</button>
   <Greeting :age="age" />
-  <User :age="age" />
+  <User :age="age" @change-age="ageIncrease" />
 </template>
 
 <script>
@@ -21,8 +20,8 @@ export default {
     };
   },
   methods: {
-    ageIncrease() {
-      this.age++;
+    ageIncrease(num) {
+      this.age += num;
     },
   },
 };
