@@ -1,0 +1,28 @@
+<template>
+  <div>
+    <button type="button" @click.prevent="flag = !flag">Toggle</button>
+    <transition name="fade">
+      <h2 v-if="flag">Hello World!</h2>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      flag: false,
+    };
+  },
+};
+</script>
+
+<style>
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: all 0.25s linear;
+}
+</style>

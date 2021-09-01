@@ -13,7 +13,7 @@
     </template>
     <p>This should go in the default slot</p>
   </AppForm>
-  <AppForm>
+  <!-- <AppForm>
     <template v-slot:help>
       <p>This is a Contact help text</p>
     </template>
@@ -24,7 +24,7 @@
     <template v-slot:buttons>
       <button type="submit">Submit</button>
     </template>
-  </AppForm>
+  </AppForm> -->
 </template>
 
 <script>
