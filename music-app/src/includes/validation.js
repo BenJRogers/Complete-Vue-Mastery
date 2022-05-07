@@ -4,7 +4,7 @@ import {
   defineRule,
   ErrorMessage,
 } from "vee-validate";
-import { required, min, max, alpha_spaces } from "@vee-validate/rules";
+import { required, min, max, alpha_spaces, email } from "@vee-validate/rules";
 
 export default {
   install(app) {
@@ -16,5 +16,6 @@ export default {
     defineRule("min", min);
     defineRule("max", max);
     defineRule("alpha_spaces", alpha_spaces);
+    defineRule("email", email);
   },
 };
