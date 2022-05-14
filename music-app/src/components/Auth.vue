@@ -19,7 +19,7 @@
                         <p class="text-2xl font-bold">Your Account</p>
                         <!-- Modal Close Button -->
                         <div @click.prevent="toggleAuthModal" class="modal-close cursor-pointer z-50">
-                            <i class="fas fa-times">x</i>
+                            <i class="fas fa-times"></i>
                         </div>
                     </div>
 
@@ -57,7 +57,8 @@
                         </button>
                     </vee-form>
                     <!-- Registration Form -->
-                    <vee-form v-show="tab === 'register'" :validation-schema="schema" @submit="register">
+                    <vee-form v-show="tab === 'register'" :validation-schema="schema" @submit="register"
+                        :initial-values="userData">
                         <!-- Name -->
                         <div class="mb-3">
                             <label class="inline-block mb-2">Name</label>
@@ -82,9 +83,12 @@
                         <!-- Password -->
                         <div class="mb-3">
                             <label class="inline-block mb-2">Password</label>
-                            <vee-field type="password" name="password" class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
-                  duration-500 focus:outline-none focus:border-black rounded" placeholder="Password" />
-                            <ErrorMessage class="text-red-600" name="password" />
+                            <Vee-field name="password" :bails="false" v-slot="{ field, errors }">
+                                <input class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300
+                 transition duration-500 focus:outline-none focus:border-black rounded" type="password"
+                                    v-bind="field" />
+                                <div class="text-red-600" v-for="error in errors" :key="error">{{ error }}</div>
+                            </vee-field>
                         </div>
                         <!-- Confirm Password -->
                         <div class="mb-3">
@@ -138,6 +142,9 @@ export default {
                 confirm_password: 'required|confirmed:@password',
                 country: 'required|excluded:Australia',
                 tos: 'required',
+            },
+            userData: {
+                country: 'USA',
             },
         };
     },
