@@ -89,6 +89,7 @@
                                     v-bind="field" />
                                 <div class="text-red-600" v-for="error in errors" :key="error">{{ error }}</div>
                             </vee-field>
+                            <ErrorMessage class="text-red-600" name="password" />
                         </div>
                         <!-- Confirm Password -->
                         <div class="mb-3">
